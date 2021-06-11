@@ -1,0 +1,46 @@
+{% extends 'todo/main.html' %}
+
+{% load static %}
+
+{% block title %} Todo | Update {% endblock title %}
+
+
+{% block content %}
+<div class="card">
+    <div class="text-center display-5 card card-head">
+        To-Do List <b>(Update {{  task  }})</b>
+    </div>
+
+    <div class="card card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+
+                {{ form.title }} <span>Completed? : {{ form.complete }}</span><br>
+
+            <input type="submit" class="btn btn-md mt-4 mb-4 btn-success" name="submit" value="Add">
+        </form><br>
+        {{ task }}
+            <!-- {% for task in tasks %}
+                {% if  task.complete == True %}
+                    <p class="text-center mb-2 mt-2 ">
+                        <span>
+                            <a href="{% url 'todo:detail' %}">Update</a>
+                            <a href="{% url 'todo:delete' %}">Delete</a>
+                            <strike class="text-danger">{{ task }}</strike>
+                        </span>
+                    </p>
+                {% else %}  
+                    <p class="text-center mb-2 mt-2 ">
+                        <span>
+                            <a href="{% url 'todo:detail' %}">Update</a>
+                            <a href="{% url 'todo:delete' %}">Delete</a>
+                            {{ task }}
+                        
+                        </span>
+                    </p>
+                {% endif %} 
+                        
+            {% endfor %} -->
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'todo/main.html' %}
+
+{% load static %}
+
+{% block title %} Todo | Delete {% endblock title %}
+
+
+{% block content %}
+<div class="card">
+    <div class="text-center display-5 card card-head">
+        <h2>To-Do List (Delete Page)</h2>
+        <p>Are you sure you want to Delete  <b>{{task}}</b>  ?</p>
+    </div>
+
+    <div class="card card-body">
+        <center>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="submit" name="Yes" class="btn btn-md btn-danger" value="Yes">
+                <a href="{% url 'todo:index' %}" class="btn btn-md btn-success">No</a>
+            </form>
+        </center>
+       
+    </div>
+</div>
+{% endblock content %}
